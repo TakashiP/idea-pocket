@@ -1,0 +1,32 @@
+<h1>会員登録</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@user) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+
+      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.password_field :password_confirmation %>
+      
+      <%= f.label :gyokai, "業種" %>
+      <%= f.select :gyokai, [["Railsの基礎", "rails_base"], ["Rubyの基礎", "ruby_base"]], :include_blank => true %>
+      
+      <%= f.label :shokushu, "職種" %>
+      <%= f.select :shokushu, [["Railsの基礎", "rails_base"], ["Rubyの基礎", "ruby_base"]], :include_blank => true  %>
+      
+      <%= f.label :shokui, "職位" %>
+      <%= f.select :shokui, [["Railsの基礎", "rails_base"], ["Rubyの基礎", "ruby_base"]], :include_blank => true  %>
+
+      <%= f.submit "登録する", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>
