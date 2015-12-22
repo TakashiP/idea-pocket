@@ -1,0 +1,12 @@
+<li id="pocket-<%= micropost.id %>">
+  <%= link_to gravatar_for(pocket.user, size: 50), pocket.user %>
+  <span class="user"><%= link_to pocket.user.name, pocket.user %></span>
+  <span class="content"><%= pocket.content %></span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(pocket.created_at) %> ago.
+    <% if current_user == pocket.user %>
+    <%= link_to "delete", pocket, method: :delete,
+                                       data: { confirm: "削除してもよろしいですか？" } %>
+    <% end %>
+  </span>
+</li>

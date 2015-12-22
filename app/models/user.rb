@@ -5,5 +5,9 @@ class User < ActiveRecord::Base
   validates :email, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
+  validates :gyokai, presence: true
+  validates :shokushu, presence: true
+  validates :shokui, presence: true
   has_secure_password
+  has_many :pockets
 end
