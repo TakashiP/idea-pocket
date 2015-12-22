@@ -18,6 +18,24 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    if @user != current_user
+      redirect_to root_url
+    end
+  end
+  
+  def update
+    if @user == current_user
+      if @user.update(user_params)
+        # 保存に成功した場合はプロフィールページへリダイレクト
+        redirect_to @user , notice: 'プロフィールを編集しました'
+      else
+        # 保存に失敗した場合は編集画面へ戻す
+        render 'edit'
+      end
+    end
+  end
+  
   private
 
   def user_params
