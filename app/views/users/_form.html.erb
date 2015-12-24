@@ -16,13 +16,13 @@
       <%= f.password_field :password_confirmation %>
       
       <%= f.label :gyokai, "業種" %>
-      <%= f.select :gyokai, [["メーカー", "maker"], ["サービス", "service"], ["その他", "gyokai_others"]], :include_blank => true %>
+      <%= f.select :gyokai, [["メーカー", "メーカー"], ["サービス", "サービス"], ["その他", "その他"]], :include_blank => true %>
       
       <%= f.label :shokushu, "職種" %>
-      <%= f.select :shokushu, [["開発", "kaihatsu"], ["製造", "seizo"], ["マーケティング", "marketing"], ["営業・販売", "eigyo"], ["事務", "jimu"], ["その他", "shokushu_others"]], :include_blank => true  %>
+      <%= f.select :shokushu, [["開発", "開発"], ["製造", "製造"], ["マーケティング", "マーケティング"], ["営業・販売", "営業・販売"], ["事務", "事務"], ["その他", "その他"]], :include_blank => true  %>
       
       <%= f.label :shokui, "職位" %>
-      <%= f.select :shokui, [["経営者", "keieisha"], ["管理職", "kanrishoku"], ["担当", "tanto"], ["その他", "shokui_others"]], :include_blank => true  %>
+      <%= f.select :shokui, [["経営者", "経営者"], ["管理職", "管理職"], ["担当", "担当"], ["その他", "その他"]], :include_blank => true  %>
 
       <%= f.submit "更新する", class: "btn btn-large btn-primary" %>
     <% end %>

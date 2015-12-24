@@ -1,8 +1,8 @@
 class PocketsController < ApplicationController
-  before_action :logged_in_user, only: [:create]
+  before_action :logged_in_user, only: [:create, :destroy]
 
   def create
-    @pocket = current_user.pockets.build(micropost_params)
+    @pocket = current_user.pockets.build(pocket_params)
     if @pocket.save
       flash[:success] = "新しいアイデアポケットが生成されました！"
       redirect_to root_url
@@ -15,7 +15,7 @@ class PocketsController < ApplicationController
     @pocket = current_user.pockets.find_by(id: params[:id])
     return redirect_to root_url if @pocket.nil?
     @pocket.destroy
-    flash[:success] = "ポケットを削除しました"
+    flash[:success] = "アイデアポケットが削除されました！"
     redirect_to request.referrer || root_url
   end
   

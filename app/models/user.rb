@@ -10,4 +10,5 @@ class User < ActiveRecord::Base
   validates :shokui, presence: true
   has_secure_password
   has_many :pockets
+  has_many :ideas
 end

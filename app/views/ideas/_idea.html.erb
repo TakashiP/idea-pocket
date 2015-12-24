@@ -1,0 +1,9 @@
+<li id="idea-<%= idea.id %>">
+  <span class="content"><%= idea.content %></span>
+  <span class="right">
+      <% if current_user == idea.user %>
+      <%= link_to "delete", idea, method: :delete,
+                                       data: { confirm: "削除してもよろしいですか？" } %>
+    <% end %>
+  </span>
+</li>

@@ -7,19 +7,11 @@
       </h1>
     </section>
   </aside>
-  <div class="col-md-8">
-    <% if @user.pockets.any? %>
-      <h3>アイデアポケット (<%= @user.pockets.count %>)</h3>
-      <ol class="pockets">
-        <%= render @pockets %>
-      </ol>
-    <% end %>
-  </div>
 </div>
 <div class="panel-body bar">
     <h2 class = "bar"><span class="label label-info">名前</span>　　　　　 　<%= @user.name %></h2>
     <h2 class = "bar"><span class="label label-info">Email</span>　　　　　　<%= @user.email %></h2>
-    <h2 class = "bar"><span class="label label-info">業種</span>　　 　      <%= @user.gyokai %></h2>
+    <h2 class = "bar"><span class="label label-info">業種</span>             　　　　　　<%= @user.gyokai %></h2>
     <h2 class = "bar"><span class="label label-info">職種</span>　　　　　 　<%= @user.shokushu %></h2>
     <h2 class = "bar"><span class="label label-info">職位</span>　　　　　 　<%= @user.shokui %></h2>
   <br>

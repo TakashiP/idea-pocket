@@ -4,6 +4,7 @@ before_action :set_user, only: [:edit, :update]
   def show # 追加
    @user = User.find(params[:id])
    @pockets = @user.pockets.order(created_at: :desc)
+   @ideas = @user.ideas.order(created_at: :desc)
   end
 
   def new
@@ -42,7 +43,7 @@ before_action :set_user, only: [:edit, :update]
 
   def user_params
     params.require(:user).permit(:name, :email, :password,
-                                 :password_confirmation)
+                                 :password_confirmation, :gyokai, :shokushu, :shokui)
   end
   
   def set_user
