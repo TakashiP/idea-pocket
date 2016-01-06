@@ -1,6 +1,16 @@
 class PocketsController < ApplicationController
   before_action :logged_in_user, only: [:create, :destroy]
 
+  def show
+    @id = params[:id]
+    @user = current_user if logged_in?
+    @pocket = Pocket.find_by(params[:id])
+    @idea = current_user.ideas.build if logged_in?
+    @ideas  = @pocket.ideas
+    @pockets = @user.pockets.order(created_at: :desc) if logged_in?
+    render 'static_pages/home'
+  end
+
   def create
     @pocket = current_user.pockets.build(pocket_params)
     if @pocket.save

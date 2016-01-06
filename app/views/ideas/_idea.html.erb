@@ -1,5 +1,5 @@
 <li id="idea-<%= idea.id %>">
-  <span class="content"><%= idea.content %></span>
+  <h4 class="content"><%= idea.content %></h4>
   <span class="right">
       <% if current_user == idea.user %>
       <%= link_to "delete", idea, method: :delete,

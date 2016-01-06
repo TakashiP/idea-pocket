@@ -7,6 +7,10 @@ class IdeasController < ApplicationController
       flash[:success] = "アイデアが生成されました！"
       redirect_to root_url
     else
+      @pocket = Pocket.new
+      @user = current_user if logged_in?
+      @pockets = @user.pockets.order(created_at: :desc) if logged_in?
+      @ideas = @user.ideas.order(created_at: :desc) if logged_in?
       render 'static_pages/home'
     end
   end

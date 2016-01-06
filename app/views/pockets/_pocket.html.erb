@@ -1,7 +1,17 @@
 <li id="pocket-<%= pocket.id %>">
-  <h4 class="content"><%= pocket.content %></h4>
+  <h4 class="content <% if pocket.id == @id %> current <% end %>"> <!--　もしpocket.idと@idが一致したらid="current"を表示  --> <%= link_to pocket.content,pocket_path(pocket) %></h4>
   <span class="right">
     <% if current_user == pocket.user %>
+    <%= form_for(@idea) do |t| %>
+    <%= render 'shared/error_messages', object: t.object %>
+    <div class="field col-md-8">
+    <%= t.text_area :content, placeholder: "アイデアを入力してください" %>
+    </div>
+    <div><%= t.hidden_field :pocket_id, :value => pocket.id %></div>
+    <div class="col-md-3">
+      <%= t.submit "作成", class: "btn btn-primary btn-xs" %>
+      <% end %>
+    </div>
     <%= link_to "delete", pocket, method: :delete,
                                        data: { confirm: "削除してもよろしいですか？" } %>
     <% end %>

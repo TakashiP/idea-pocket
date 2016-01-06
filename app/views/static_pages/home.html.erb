@@ -1,13 +1,15 @@
 <% if logged_in? %>
   <div class="row">
-    <aside class="col-md-4">
-      <section class="user_info">
+    <aside class="col-md-12">
+      <section class="user_info  col-md-4">
         <%= render 'shared/user_info' %>
+      </section>
+      <section class="pocket_form col-md-8">
+        <%= render 'shared/pocket_form' %>
       </section>
     </aside>
   </div>
-    <section class="pocket_form col-md-4">
-      <%= render 'shared/pocket_form' %>
+    <section class="col-md-4">
       <% if @user.pockets.any? %>
       <h3>アイデアポケット (<%= @user.pockets.count %>)</h3>
       <ol class="pockets">
@@ -16,8 +18,7 @@
     <% end %>
     </section>
     <section class="idea_form col-md-8">
-      <%= render 'shared/idea_form' %>
-      <% if @user.pockets.any? %>
+      <% if @user.ideas.any? %>
       <h3>アイデア (<%= @user.ideas.count %>)</h3>
       <ol class="pockets">
         <%= render @ideas %>
