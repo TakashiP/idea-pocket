@@ -1,0 +1,36 @@
+<% if logged_in? %>
+  <div class="row">
+    <aside class="col-md-12">
+      <section class="user_info  col-md-4">
+        <%= render 'shared/user_info' %>
+      </section>
+      <section class="pocket_form col-md-8">
+        <%= render 'shared/pocket_form' %>
+      </section>
+    </aside>
+  </div>
+    <section class="col-md-4">
+      <% if @user.pockets.any? %>
+      <h3>アイデアポケット (<%= @user.pockets.count %>)</h3>
+      <ol class="pockets">
+        <%= render @pockets %>
+      </ol>
+    <% end %>
+    </section>
+    <section class="idea_form col-md-8">
+      <% if @user_pocket.ideas.any? %>
+      <h3> <%= @user_pocket.content %> (<%= @user_pocket.ideas.count %>)</h3>
+      <ol class="pockets">
+        <%= render @ideas %>
+      </ol>
+    <% end %>
+   
+    </section>
+  </div>
+<% else %>
+  <div class="center jumbotron">
+    <h1>アイデアポケットへようこそ！</h1>
+
+    <%= link_to "新規会員登録する！", signup_path, class: "btn btn-lg btn-primary" %>
+  </div>
+<% end %>

@@ -1,5 +1,6 @@
 <li id="idea-<%= idea.id %>">
   <h4 class="content"><%= idea.content %></h4>
+  <h6>所属ポケット：<%= idea.pocket.content %></h6>
   <span class="right">
       <% if current_user == idea.user %>
       <%= link_to "delete", idea, method: :delete,

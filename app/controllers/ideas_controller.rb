@@ -11,6 +11,8 @@ class IdeasController < ApplicationController
       @user = current_user if logged_in?
       @pockets = @user.pockets.order(created_at: :desc) if logged_in?
       @ideas = @user.ideas.order(created_at: :desc) if logged_in?
+      #@idea = Idea.new
+      #入力フォーム＋エラーメッセージ
       render 'static_pages/home'
     end
   end
@@ -25,7 +27,7 @@ class IdeasController < ApplicationController
   
   private
   def idea_params
-    params.require(:idea).permit(:content)
+    params.require(:idea).permit(:content, :pocket_id)
   end
 
 end
